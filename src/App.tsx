@@ -43,7 +43,7 @@ function App() {
   }, [isGameWon])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < 5 && guesses.length < 6) {
+    if (currentGuess.length < 6 && guesses.length < 7) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -62,7 +62,7 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
-    if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length === 6 && guesses.length < 7 && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
 
@@ -70,7 +70,7 @@ function App() {
         return setIsGameWon(true)
       }
 
-      if (guesses.length === 5) {
+      if (guesses.length === 6) {
         setIsGameLost(true)
         return setTimeout(() => {
           setIsGameLost(false)
@@ -81,7 +81,7 @@ function App() {
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <Alert message="Not a 5 digit prime" isOpen={isWordNotFoundAlertOpen} />
+      <Alert message="Not a word in the list" isOpen={isWordNotFoundAlertOpen} />
       <Alert
         message={`You lost, the word was ${solution}`}
         isOpen={isGameLost}
