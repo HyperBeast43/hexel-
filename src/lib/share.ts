@@ -7,7 +7,7 @@ export const shareStatus = (guesses: string[]) => {
       solutionIndex +
       ' ' +
       guesses.length +
-      '/6\n\n' +
+      '/7\n\n' +
       generateEmojiGrid(guesses)
   )
 }
